@@ -17,7 +17,7 @@
         return @"";
     }
     
-    NSString *urlStr = @"?q=";
+    NSString *urlStr = @"?";
     NSArray *qArray = [dic allKeys];
     
     for (NSString *str in qArray) {

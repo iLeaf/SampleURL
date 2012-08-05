@@ -9,6 +9,7 @@
 #import "studio_iLeafViewController.h"
 #import "UrlGen.h"
 #import "QueryBuilder.h"
+#import "UrlBuilder.h"
 
 @interface studio_iLeafViewController ()
 
@@ -25,15 +26,50 @@
     //[gen goRequest:@"gogo"];
     
     
+    
+    NSString *string = @"https://api.twitter.com/search.json";
+    
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setObject:@"1" forKey:@"include_entities"];
     [parameters setObject:@"100" forKey:@"count"];
     [parameters setObject:@"aaa" forKey:@"AAA"];
-    [parameters setObject:@"bbb" forKey:@"BBB"];
+    [parameters setObject:@"hoge" forKey:@"q"];
     [parameters setObject:@"ccc" forKey:@"CCC"];
     
-    NSLog(@"%@",[QueryBuilder build:parameters]);
+    NSString *urlStr = [UrlBuilder buildString:string parameter:parameters];
+    //NSLog(@"%@",urlStr);
+    
+    NSURL *URL = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    __weak studio_iLeafViewController *_self = self;
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] 
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               
+                               if (error) {
+                                   NSLog(@"error: %@", [error localizedDescription]);
+                                   return;
+                               }
+                               
+                               NSDictionary *dictionary =
+                               [NSJSONSerialization JSONObjectWithData:data
+                                                               options:NSJSONReadingAllowFragments
+                                                                 error:nil];
+                               //NSLog(@"%@",dictionary);
+                               [_self didLoadedData:dictionary];
+                               
+                           }];
+    
+    //NSLog(@"%@",[QueryBuilder build:parameters]);
+    
 }
+
+-(void)didLoadedData:(NSDictionary*)dic
+{
+    NSLog(@"didLoadedData %@",dic);
+}
+
+
 
 - (void)viewDidUnload
 {

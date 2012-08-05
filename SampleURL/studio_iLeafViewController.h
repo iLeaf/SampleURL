@@ -10,4 +10,6 @@
 
 @interface studio_iLeafViewController : UIViewController
 
+-(void)didLoadedData:(NSDictionary*)dic;
+
 @end
