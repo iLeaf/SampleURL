@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8792D26315CE40E8002F00E0 /* QueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8792D26215CE40E8002F00E0 /* QueryBuilder.m */; };
 		87D4499415CE0C6A001CDC53 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D4499315CE0C6A001CDC53 /* UIKit.framework */; };
 		87D4499615CE0C6A001CDC53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D4499515CE0C6A001CDC53 /* Foundation.framework */; };
 		87D4499815CE0C6A001CDC53 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D4499715CE0C6A001CDC53 /* CoreGraphics.framework */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8792D26115CE40E8002F00E0 /* QueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryBuilder.h; sourceTree = "<group>"; };
+		8792D26215CE40E8002F00E0 /* QueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryBuilder.m; sourceTree = "<group>"; };
 		87D4498F15CE0C6A001CDC53 /* SampleURL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleURL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D4499315CE0C6A001CDC53 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		87D4499515CE0C6A001CDC53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +90,8 @@
 				87D449A915CE0C6A001CDC53 /* studio_iLeafViewController.m */,
 				87EE3D0E15CE1EB70068606F /* UrlGen.h */,
 				87EE3D0F15CE1EB70068606F /* UrlGen.m */,
+				8792D26115CE40E8002F00E0 /* QueryBuilder.h */,
+				8792D26215CE40E8002F00E0 /* QueryBuilder.m */,
 				87D4499A15CE0C6A001CDC53 /* Supporting Files */,
 			);
 			path = SampleURL;
@@ -170,6 +175,7 @@
 				87D449A415CE0C6A001CDC53 /* studio_iLeafAppDelegate.m in Sources */,
 				87D449AA15CE0C6A001CDC53 /* studio_iLeafViewController.m in Sources */,
 				87EE3D1015CE1EB70068606F /* UrlGen.m in Sources */,
+				8792D26315CE40E8002F00E0 /* QueryBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
