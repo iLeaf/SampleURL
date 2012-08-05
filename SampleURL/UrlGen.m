@@ -10,17 +10,29 @@
 
 @implementation UrlGen
 
--(void)goRequest:(NSString *)urlStr
+-(void)goRequest:(NSString *)urlStr 
 {
-    NSLog(@"goRequest %@",urlStr);
+     
+    NSURL *URL = [NSURL URLWithString:@"https://api.twitter.com/search.json?q=hoge"];
     
-    /*
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.11.3/jsonReplySample.json"]];
-    NSData *json_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSError *error=nil;
-    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:json_data options:NSJSONReadingAllowFragments error:&error];
-    NSLog(@"jsonObject = %@", [jsonObject description]);
-     */
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+      
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] 
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                                
+                               if (error) {
+                                   NSLog(@"error: %@", [error localizedDescription]);
+                                   return;
+                               }
+                                
+                               NSDictionary *dictionary =
+                               [NSJSONSerialization JSONObjectWithData:data
+                                                               options:NSJSONReadingAllowFragments
+                                                                 error:nil];
+                               NSLog(@"%@",dictionary);
+                                
+                            }];
 }
 
 @end
