@@ -7,6 +7,7 @@
 //
 
 #import "studio_iLeafViewController.h"
+#import "UrlGen.h"
 
 @interface studio_iLeafViewController ()
 
@@ -18,6 +19,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    UrlGen *gen = [[UrlGen alloc] init];
+    [gen goRequest:@"gogo"];
 }
 
 - (void)viewDidUnload
